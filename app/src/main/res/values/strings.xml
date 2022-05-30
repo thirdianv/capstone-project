@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Bentala</string>
+    <string name="desc_app">Soil Detector App</string>
+    <string name="welcome">Welcome</string>
+    <string name="featured">Our Featured</string>
+    <string name="bentala_logo">Bentala Logo</string>
+    <string name="cek_tanah">Cek Jenis Tanah</string>
+    <string name="version">version 1.0</string>
+</resources>
