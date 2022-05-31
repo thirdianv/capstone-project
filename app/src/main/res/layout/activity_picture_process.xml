@@ -25,7 +25,7 @@
         android:id="@+id/btn_back"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="34dp"
         android:background="@color/white"
         android:contentDescription="Back Button"
         android:src="@drawable/ic_arrow_back"
@@ -34,47 +34,66 @@
         app:layout_constraintTop_toTopOf="@+id/tv_cek_tanah"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/btn_takepicture"
-        android:layout_width="53dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/green"
-        android:contentDescription="Ambil Gambar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
+    <LinearLayout
+        android:id="@+id/btn_frametakepicture"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="34dp"
+        android:background="@drawable/custom_shape3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_cek_tanah"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_cek_tanah">
 
-    <Button
-        android:id="@+id/btn_takefile"
-        android:layout_width="53dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/green"
-        android:contentDescription="Ambil File"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_takepicture"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.28"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_takepicture"
-        app:layout_constraintVertical_bias="1.0" />
+        <Button
+            android:id="@+id/btn_takepicture"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="19dp"
+            android:background="@drawable/ic_camera"
+            android:contentDescription="Ambil Gambar" />
+    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/result_picture"
+    <LinearLayout
+        android:id="@+id/btn_frametakefile"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/custom_shape3"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_frametakepicture"
+        app:layout_constraintStart_toEndOf="@+id/btn_frametakepicture"
+        app:layout_constraintTop_toTopOf="@+id/btn_frametakepicture">
+
+        <Button
+            android:id="@+id/btn_takefile"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/ic_document"
+            android:contentDescription="Ambil Gambar" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/result_framepicture"
         android:layout_width="334dp"
         android:layout_height="311dp"
-        android:background="@color/gray"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/custom_shape4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.577" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_frametakefile"
+        app:layout_constraintVertical_bias="0.0">
+        <ImageView
+            android:id="@+id/result_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_jpg"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
