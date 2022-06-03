@@ -121,7 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:justificationMode="inter_word"
-                android:text="Sederhananya garis horizontal disebut dengan garis mendatar. Nah, garis vertikal ialah garis yang tegak lurus terhadap permukaan bumi. Untuk membedakan dengan garis horizontal, garis vertikal disebut dengan garis tegak."
+                android:text="@string/result"
                 />
         </ScrollView>
     </RelativeLayout>

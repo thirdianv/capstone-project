@@ -47,7 +47,7 @@
         app:srcCompat="@drawable/logo_bentala" />
 
     <Button
-        android:id="@+id/tv_button_arrow"
+        android:id="@+id/tv_button_arrow_forward"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="100dp"
@@ -71,6 +71,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_button_arrow"
+        app:layout_constraintTop_toBottomOf="@+id/tv_button_arrow_forward"
         tools:targetApi="jelly_bean" />
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/gray2"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

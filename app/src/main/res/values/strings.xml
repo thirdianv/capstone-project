@@ -7,4 +7,5 @@
     <string name="cek_tanah">Cek Jenis Tanah</string>
     <string name="version">version 1.0</string>
     <string name="hasil">Hasil</string>
+    <string name="result">Result Description</string>
 </resources>
