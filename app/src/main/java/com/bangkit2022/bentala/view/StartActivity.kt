@@ -8,16 +8,19 @@ import android.os.Looper
 import android.view.WindowManager
 import android.widget.Button
 import com.bangkit2022.bentala.R
+import com.bangkit2022.bentala.databinding.ActivityStartBinding
 
 class StartActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityStartBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start)
 
-        val button =findViewById<Button>(R.id.tv_button_arrow_forward)
+        binding = ActivityStartBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        button.setOnClickListener {
+        binding.tvButtonArrowForward.setOnClickListener {
             callActivity()
         }
 
