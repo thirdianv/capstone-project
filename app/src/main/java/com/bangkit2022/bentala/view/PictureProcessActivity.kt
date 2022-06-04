@@ -1,5 +1,6 @@
 package com.bangkit2022.bentala.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bangkit2022.bentala.R
@@ -13,5 +14,13 @@ class PictureProcessActivity : AppCompatActivity() {
 
         binding = ActivityPictureProcessBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnBack.setOnClickListener{
+            callBackMainActivity()
+        }
+    }
+    private fun callBackMainActivity(){
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 }

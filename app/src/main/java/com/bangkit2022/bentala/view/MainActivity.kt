@@ -1,5 +1,6 @@
 package com.bangkit2022.bentala.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bangkit2022.bentala.R
@@ -14,5 +15,14 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.tvButtonCekTanah.setOnClickListener{
+            callPictureProcess()
+        }
+    }
+
+    private fun callPictureProcess(){
+        startActivity(Intent(this, PictureProcessActivity::class.java))
+        finish()
     }
 }
