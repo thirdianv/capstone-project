@@ -3,6 +3,8 @@
     package="com.bangkit2022.bentala" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -24,6 +26,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.MainActivity"></activity>
+        <activity
+            android:name=".view.CameraActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

@@ -27,7 +27,6 @@ class StartActivity : AppCompatActivity() {
     }
     private fun callActivity(){
         startActivity(Intent(this, MainActivity::class.java))
-        finish()
     }
 
 }
