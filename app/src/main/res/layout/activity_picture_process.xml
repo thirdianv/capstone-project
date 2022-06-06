@@ -39,19 +39,20 @@
     <LinearLayout
         android:id="@+id/btn_frametakepicture"
         android:layout_width="70dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="34dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/custom_shape3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.63"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_cek_tanah">
+        app:layout_constraintTop_toBottomOf="@+id/result_framepicture">
 
         <Button
             android:id="@+id/cameraXButton"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/ic_camera"
             android:contentDescription="Ambil Gambar" />
     </LinearLayout>
@@ -59,7 +60,7 @@
     <LinearLayout
         android:id="@+id/btn_frametakefile"
         android:layout_width="70dp"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_marginStart="15dp"
         android:background="@drawable/custom_shape3"
         app:layout_constraintBottom_toBottomOf="@+id/btn_frametakepicture"
@@ -70,8 +71,8 @@
             android:id="@+id/galleryButton"
             android:layout_width="40dp"
             android:layout_height="45dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="13dp"
             android:background="@drawable/ic_document"
             android:contentDescription="Ambil Gambar" />
     </LinearLayout>
@@ -80,55 +81,58 @@
         android:id="@+id/result_framepicture"
         android:layout_width="334dp"
         android:layout_height="311dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/custom_shape4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_frametakefile"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/tv_cek_tanah">
+
         <ImageView
             android:id="@+id/previewImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:src="@drawable/ic_jpg"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            tools:src="@drawable/ic_jpg" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tv_hasil"
-        style="@style/FeaturedStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/hasil"
-        android:textColor="@color/black2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result_framepicture" />
 
     <RelativeLayout
-        android:layout_width="334dp"
-        android:layout_height="110dp"
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/white2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_hasil">
+        app:layout_constraintTop_toBottomOf="@+id/btn_frametakefile"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/tv_hasil"
+            style="@style/FeaturedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="@string/hasil"
+            android:textColor="@color/black2" />
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tv_hasil"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp">
+
             <TextView
                 android:id="@+id/tv_text_hasil"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:justificationMode="inter_word"
-                android:textColor="@color/black3"
                 android:text="@string/result"
-                />
+                android:textColor="@color/black3" />
         </ScrollView>
     </RelativeLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

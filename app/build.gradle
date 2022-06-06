@@ -25,6 +25,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        mlModelBinding true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -37,6 +38,8 @@ android {
 
 dependencies {
 
+    implementation 'org.tensorflow:tensorflow-lite-support:0.1.0-rc1'
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0-rc1'
     def camerax_version = "1.1.0-beta02"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.21"

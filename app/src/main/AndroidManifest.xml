@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.bangkit2022.bentala" >
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,11 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bentala" >
         <activity
-            android:name=".view.PictureProcessActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.StartActivity"
-            android:exported="true" >
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,6 +26,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.MainActivity"></activity>
+        <activity
+            android:name=".view.PictureProcessActivity"
+            android:exported="false" />
         <activity
             android:name=".view.CameraActivity"
             android:exported="false"/>
