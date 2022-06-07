@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/onBoardThird"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    tools:context=".view.onboard.ThirdActivity">
+
+    <ImageView
+        android:id="@+id/imageOnBoard3"
+        android:layout_width="360dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.004"
+        app:srcCompat="@drawable/ic_asset_onboard_3"
+        android:contentDescription="@string/imgOnBoard1" />
+
+    <TextView
+        android:id="@+id/textTitleThird"
+        style="@style/BentalaHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/heading3_title"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/imageOnBoard3"
+        app:layout_constraintStart_toStartOf="@+id/imageOnBoard3"
+        app:layout_constraintTop_toBottomOf="@+id/imageOnBoard3" />
+
+    <TextView
+        android:id="@+id/textSubThird"
+        style="@style/BentalaSubs"
+        android:layout_width="390dp"
+        android:layout_height="87dp"
+        android:text="@string/heading3_sub"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btnReady"
+        app:layout_constraintEnd_toEndOf="@+id/textTitleThird"
+        app:layout_constraintStart_toStartOf="@+id/textTitleThird"
+        app:layout_constraintTop_toBottomOf="@+id/textTitleThird"
+        app:layout_constraintVertical_bias="0.514" />
+
+    <Button
+        android:id="@+id/btnReady"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="124dp"
+        android:background="@drawable/custom_shape1"
+        android:text="@string/btnReady"
+        android:textColor="#2E7D32"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
