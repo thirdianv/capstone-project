@@ -1,9 +1,10 @@
 package com.bangkit2022.bentala.view.onboard
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import com.bangkit2022.bentala.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
 import com.bangkit2022.bentala.databinding.ActivityOneBinding
+import com.bangkit2022.bentala.view.MainActivity
 
 class OneActivity : AppCompatActivity() {
 
@@ -14,5 +15,25 @@ class OneActivity : AppCompatActivity() {
 
         binding = ActivityOneBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnLanjut.setOnClickListener{
+            callSecondActivity()
+        }
+
+        binding.btnSkip.setOnClickListener{
+            callMainActivity()
+        }
+
     }
+
+    private fun callSecondActivity(){
+        startActivity(Intent(this, SecondActivity::class.java))
+        finish()
+    }
+
+    private fun callMainActivity(){
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
+    }
+
 }
