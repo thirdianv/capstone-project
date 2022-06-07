@@ -1,9 +1,8 @@
 package com.bangkit2022.bentala.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.bangkit2022.bentala.R
+import androidx.appcompat.app.AppCompatActivity
 import com.bangkit2022.bentala.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

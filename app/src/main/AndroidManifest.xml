@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.bangkit2022.bentala" >
+    package="com.bangkit2022.bentala">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
 
     <application
@@ -17,11 +19,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Bentala" >
+        android:theme="@style/Theme.Bentala">
+        <activity
+            android:name=".view.onboard.ThirdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.onboard.SecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.onboard.OneActivity"
+            android:exported="false" />
         <activity
             android:name=".view.StartActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,13 +40,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MainActivity"></activity>
+        <activity android:name=".view.MainActivity" />
         <activity
             android:name=".view.PictureProcessActivity"
             android:exported="false" />
         <activity
             android:name=".view.CameraActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>

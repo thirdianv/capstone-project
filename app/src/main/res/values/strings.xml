@@ -9,4 +9,21 @@
     <string name="hasil">Hasil</string>
     <string name="result">Result Description</string>
     <string name="coming_soon">Coming Soon</string>
+    <string name="heading1_title">Apa itu Bentala ?</string>
+    <string name="heading2_title">Tingkatkan hasil pertanian Anda</string>
+    <string name="heading3_title">Mudah Digunakan</string>
+    <string name="heading1_sub">Bentala adalah aplikasi pendeteksi jenis
+tanah yang memiliki aksesibilitas mudah
+hanya dengan menggunakan smartphone anda</string>
+    <string name="heading2_sub">Bentala mampu mengetahui jenis tanah
+    sehingga anda dapat menyesuaikan dengan
+        jenis tanaman yang sesuai</string>
+    <string name="heading3_sub">Bentala di rancang dengan mempertimbangkan
+        segala aspek yang dibutuhkan oleh pengguna</string>
+    <string name="btnLanjut">Lanjut</string>
+    <string name="btnSkip">Lewati</string>
+    <string name="btnReady">Ya, Saya Mengerti</string>
+    <string name="imgOnBoard1">Gambar On Board 1</string>
+    <string name="imgOnBoard2">Gambar On Board 2</string>
+    <string name="imgOnBoard3">Gambar On Board 3</string>
 </resources>
