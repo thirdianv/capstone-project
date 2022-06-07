@@ -9,6 +9,7 @@ import android.view.WindowManager
 import android.widget.Button
 import com.bangkit2022.bentala.R
 import com.bangkit2022.bentala.databinding.ActivityStartBinding
+import com.bangkit2022.bentala.view.onboard.OneActivity
 
 class StartActivity : AppCompatActivity() {
 
@@ -20,13 +21,13 @@ class StartActivity : AppCompatActivity() {
         binding = ActivityStartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvButtonArrowForward.setOnClickListener {
-            callActivity()
-        }
+        val handler = Handler()
+        handler.postDelayed({
+            var intent = Intent(this@StartActivity, OneActivity::class.java)
+            startActivity(intent)
+            finish()
+        }, 5000)
 
-    }
-    private fun callActivity(){
-        startActivity(Intent(this, MainActivity::class.java))
     }
 
 }
