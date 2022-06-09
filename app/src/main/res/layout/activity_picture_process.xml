@@ -50,46 +50,40 @@
         app:layout_constraintTop_toTopOf="@+id/tv_cek_tanah"
         app:layout_constraintVertical_bias="1.0" />
 
-    <LinearLayout
+
+    <Button
         android:id="@+id/btn_frametakepicture"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        style="@style/BentalaSubs"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/custom_shape3"
+        android:drawableLeft="@drawable/ic_camera"
+        android:text="@string/foto"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result_framepicture">
+        app:layout_constraintTop_toBottomOf="@+id/result_framepicture" />
 
-        <Button
-            android:id="@+id/cameraXButton"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/ic_camera"
-            android:contentDescription="Ambil Gambar" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/btn_frametakefile"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+    <Button
+        android:id="@+id/galleryButton"
+        style="@style/BentalaSubs"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/custom_shape3"
+        android:drawableLeft="@drawable/ic_document"
+        android:text="@string/File"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/btn_frametakepicture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.757"
         app:layout_constraintStart_toEndOf="@+id/btn_frametakepicture"
-        app:layout_constraintTop_toTopOf="@+id/btn_frametakepicture">
-
-        <Button
-            android:id="@+id/galleryButton"
-            android:layout_width="40dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="13dp"
-            android:background="@drawable/ic_document"
-            android:contentDescription="Ambil Gambar" />
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="@+id/btn_frametakepicture"
+        app:layout_constraintVertical_bias="1.0" />
 
     <RelativeLayout
         android:id="@+id/result_framepicture"
@@ -119,7 +113,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_frametakefile"
+        app:layout_constraintTop_toBottomOf="@+id/galleryButton"
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
