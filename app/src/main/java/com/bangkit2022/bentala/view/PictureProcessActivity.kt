@@ -73,8 +73,9 @@ class PictureProcessActivity : AppCompatActivity() {
             )
         }
 
-        binding.cameraXButton.setOnClickListener { startCameraX() }
+        binding.btnCameraXButton.setOnClickListener { startCameraX() }
         binding.galleryButton.setOnClickListener { startGallery() }
+
         binding.btnHelp.setOnClickListener { callHelpPage() }
         binding.btnBack.setOnClickListener{
             callBackMainActivity()

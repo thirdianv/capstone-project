@@ -52,7 +52,7 @@
 
 
     <Button
-        android:id="@+id/btn_frametakepicture"
+        android:id="@+id/btn_cameraXButton"
         style="@style/BentalaSubs"
         android:layout_width="100dp"
         android:layout_height="50dp"
