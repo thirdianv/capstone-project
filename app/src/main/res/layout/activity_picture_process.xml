@@ -7,6 +7,19 @@
     android:background="@drawable/bg1"
     tools:context=".view.PictureProcessActivity">
 
+    <Button
+        android:id="@+id/btn_help"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/ic_help"
+        android:contentDescription="Help Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.042" />
+
     <TextView
         android:id="@+id/tv_cek_tanah"
         style="@style/BentalaHeading"
@@ -32,9 +45,10 @@
         android:contentDescription="Back Button"
         app:layout_constraintBottom_toBottomOf="@+id/tv_cek_tanah"
         app:layout_constraintEnd_toStartOf="@+id/tv_cek_tanah"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_cek_tanah"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
         android:id="@+id/btn_frametakepicture"

@@ -1,23 +1,34 @@
 package com.bangkit2022.bentala.view
 
-import com.bangkit2022.bentala.databinding.ActivityPictureProcessBinding
 import android.Manifest
 import android.content.Intent
 import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.bangkit2022.bentala.databinding.ActivityPictureProcessBinding
+import com.bangkit2022.bentala.ml.KlasifikasiJenisTanah3
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.*
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
+
 
 class PictureProcessActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPictureProcessBinding
+
 
     companion object {
         const val CAMERA_X_RESULT = 200
@@ -29,7 +40,7 @@ class PictureProcessActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
-        grantResults: IntArray
+        grantResults: IntArray,
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
@@ -64,10 +75,14 @@ class PictureProcessActivity : AppCompatActivity() {
 
         binding.cameraXButton.setOnClickListener { startCameraX() }
         binding.galleryButton.setOnClickListener { startGallery() }
-
+        binding.btnHelp.setOnClickListener { callHelpPage() }
         binding.btnBack.setOnClickListener{
             callBackMainActivity()
         }
+    }
+    private fun callHelpPage(){
+        startActivity(Intent(this, HelpActivity::class.java))
+        finish()
     }
     private fun callBackMainActivity(){
         startActivity(Intent(this, MainActivity::class.java))
@@ -116,4 +131,20 @@ class PictureProcessActivity : AppCompatActivity() {
             binding.previewImageView.setImageURI(selectedImg)
         }
     }
+    /*fun classifyImage(image: Bitmap) {
+        val model = KlasifikasiJenisTanah3.newInstance(applicationContext)
+
+// Creates inputs for reference.
+        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 150, 150, 3), DataType.FLOAT32)
+        inputFeature0.loadBuffer(byteBuffer)
+
+// Runs model inference and gets result.
+        val outputs = model.process(inputFeature0)
+        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+
+// Releases model resources if no longer used.
+        model.close()
+    }*/
+        
+
 }

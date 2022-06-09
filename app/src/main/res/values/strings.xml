@@ -26,4 +26,10 @@ hanya dengan menggunakan smartphone anda</string>
     <string name="imgOnBoard1">Gambar On Board 1</string>
     <string name="imgOnBoard2">Gambar On Board 2</string>
     <string name="imgOnBoard3">Gambar On Board 3</string>
+    <string name="cara_title">Cara Penggunaan</string>
+    <string name="cara1">1. Silahkan memilih fitur yang telah disediakan</string>
+    <string name="cara2">2. Pada tahapan selanjutnya pengguna di haruskan untuk mengambil gambar dengan cara klik icon Foto atau juga dapat melakukan pengambilan file yang berada pada galery dengan klik icon file</string>
+    <string name="cara3">3. Tunggu hingga gambar selesai di proses</string>
+    <string name="cara4">4. Jika sudah selesai hasil dapat dilihat pada bagian bawah</string>
+    <string name="cara5">5. Ulangi lagi tahapan proses untuk melakukan cek jenis tanah lagi</string>
 </resources>

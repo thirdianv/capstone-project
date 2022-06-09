@@ -18,10 +18,16 @@ class MainActivity : AppCompatActivity() {
         binding.tvButtonCekTanah.setOnClickListener{
             callPictureProcess()
         }
+        binding.btnHelp.setOnClickListener {
+            callHelpPage()
+        }
     }
 
     private fun callPictureProcess(){
         startActivity(Intent(this, PictureProcessActivity::class.java))
         finish()
+    }
+    private fun callHelpPage(){
+        startActivity(Intent(this, HelpActivity::class.java))
     }
 }
