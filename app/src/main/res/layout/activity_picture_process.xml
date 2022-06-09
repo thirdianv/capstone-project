@@ -78,11 +78,11 @@
         android:drawableLeft="@drawable/ic_document"
         android:text="@string/File"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_frametakepicture"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_cameraXButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.757"
-        app:layout_constraintStart_toEndOf="@+id/btn_frametakepicture"
-        app:layout_constraintTop_toTopOf="@+id/btn_frametakepicture"
+        app:layout_constraintStart_toEndOf="@+id/btn_cameraXButton"
+        app:layout_constraintTop_toTopOf="@+id/btn_cameraXButton"
         app:layout_constraintVertical_bias="1.0" />
 
     <RelativeLayout
