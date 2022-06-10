@@ -77,9 +77,7 @@ class PictureProcessActivity : AppCompatActivity() {
         binding.galleryButton.setOnClickListener { startGallery() }
 
         binding.btnHelp.setOnClickListener { callHelpPage() }
-        binding.btnBack.setOnClickListener{
-            callBackMainActivity()
-        }
+        binding.btnBack.setOnClickListener{ callBackMainActivity() }
     }
     private fun callHelpPage(){
         startActivity(Intent(this, HelpActivity::class.java))
