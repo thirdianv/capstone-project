@@ -6,23 +6,19 @@ import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.ColorSpace.Model
 import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bangkit2022.bentala.databinding.ActivityPictureProcessBinding
 import com.bangkit2022.bentala.ml.KlasifikasiJenisTanah3
 import org.tensorflow.lite.DataType
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.*
-import java.nio.ByteBuffer
-import java.nio.ByteOrder
 
 
 class PictureProcessActivity : AppCompatActivity() {
@@ -130,7 +126,8 @@ class PictureProcessActivity : AppCompatActivity() {
             binding.previewImageView.setImageURI(selectedImg)
         }
     }
-    /*fun classifyImage(image: Bitmap) {
+
+    fun classifyImage(image: Bitmap) {
         val model = KlasifikasiJenisTanah3.newInstance(applicationContext)
 
 // Creates inputs for reference.
@@ -143,7 +140,19 @@ class PictureProcessActivity : AppCompatActivity() {
 
 // Releases model resources if no longer used.
         model.close()
-    }*/
-        
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            var image = data!!.extras!!["data"] as Bitmap?
+            val dimension = Math.min(image!!.width, image.height)
+            image = ThumbnailUtils.extractThumbnail(image, dimension, dimension)
+            imageView.setImageBitmap(image)
+            image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
+            classifyImage(image)
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
 
 }
