@@ -167,7 +167,7 @@ class PictureProcessActivity : AppCompatActivity() {
                 maxPos = i
             }
         }
-        val classes = arrayOf("jenis tanah")//belum di tambahkan dari model
+        val classes = arrayOf("Aluvial", "Andosol", "Entisol", "Humus", "Inceptisol", "Laterit", "Kapur", "Pasir")//belum di tambahkan dari model
         resultPicture.setText(classes[maxPos])
 // Releases model resources if no longer used.
         model.close()
