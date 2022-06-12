@@ -53,7 +53,6 @@
 
     <Button
         android:id="@+id/btn_cameraXButton"
-        style="@style/BentalaSubs"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="15dp"
@@ -68,22 +67,31 @@
         app:layout_constraintTop_toBottomOf="@+id/result_framepicture" />
 
     <Button
-        android:id="@+id/galleryButton"
-        style="@style/BentalaSubs"
+        android:id="@+id/tvpredic"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/custom_shape3"
+        android:text="@string/predic"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_cameraXButton"
+        app:layout_constraintStart_toEndOf="@+id/btn_cameraXButton"
+        app:layout_constraintTop_toTopOf="@+id/btn_cameraXButton"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/galleryButton"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:background="@drawable/custom_shape3"
         android:drawableLeft="@drawable/ic_document"
         android:text="@string/File"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_cameraXButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.757"
-        app:layout_constraintStart_toEndOf="@+id/btn_cameraXButton"
-        app:layout_constraintTop_toTopOf="@+id/btn_cameraXButton"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintStart_toEndOf="@+id/tvpredic"
+        app:layout_constraintTop_toTopOf="@+id/tvpredic" />
 
     <RelativeLayout
         android:id="@+id/result_framepicture"
