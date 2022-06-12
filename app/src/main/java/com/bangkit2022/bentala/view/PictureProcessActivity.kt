@@ -10,6 +10,8 @@ import android.graphics.ColorSpace.Model
 import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -18,13 +20,17 @@ import androidx.core.content.ContextCompat
 import com.bangkit2022.bentala.databinding.ActivityPictureProcessBinding
 import com.bangkit2022.bentala.ml.KlasifikasiJenisTanah3
 import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.*
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 
 
 class PictureProcessActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPictureProcessBinding
-
+    private val imageSize: Int = 150
+    private lateinit var imageView: ImageView
 
     companion object {
         const val CAMERA_X_RESULT = 200
@@ -68,7 +74,7 @@ class PictureProcessActivity : AppCompatActivity() {
                 REQUEST_CODE_PERMISSIONS
             )
         }
-
+        imageView = binding.previewImageView
         binding.btnCameraXButton.setOnClickListener { startCameraX() }
         binding.galleryButton.setOnClickListener { startGallery() }
 
@@ -132,6 +138,12 @@ class PictureProcessActivity : AppCompatActivity() {
 
 // Creates inputs for reference.
         val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 150, 150, 3), DataType.FLOAT32)
+        val byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3)
+        byteBuffer.order(ByteOrder.nativeOrder())
+        val newArray: Array<Int> = arrayOf(imageSize * imageSize)
+        image.getPixels(newArray.toIntArray(), 0, image.width, 0, 0, image.width, image.height)
+        val pixel = 0
+        for (i in imageSize)
         inputFeature0.loadBuffer(byteBuffer)
 
 // Runs model inference and gets result.
@@ -151,7 +163,19 @@ class PictureProcessActivity : AppCompatActivity() {
             imageView.setImageBitmap(image)
             image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
             classifyImage(image)
+        }else{
+            var uri = data?.getData()
+            var image: Bitmap? = null
+            try {
+                image = MediaStore.Images.Media.getBitmap(contentResolver, uri)
+            }catch (e: IOException){
+                e.printStackTrace()
+            }
+            imageView.setImageBitmap(image)
+            image = Bitmap.createScaledBitmap(image!!, imageSize, imageSize, false)
+            classifyImage(image)
         }
+
         super.onActivityResult(requestCode, resultCode, data)
     }
 
