@@ -6,12 +6,12 @@ import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.ColorSpace.Model
 import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +21,8 @@ import com.bangkit2022.bentala.databinding.ActivityPictureProcessBinding
 import com.bangkit2022.bentala.ml.KlasifikasiJenisTanah3
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
-import java.io.*
+import java.io.File
+import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
@@ -31,6 +32,7 @@ class PictureProcessActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPictureProcessBinding
     private val imageSize: Int = 150
     private lateinit var imageView: ImageView
+    private lateinit var resultPicture: TextView
 
     companion object {
         const val CAMERA_X_RESULT = 200
@@ -74,6 +76,7 @@ class PictureProcessActivity : AppCompatActivity() {
                 REQUEST_CODE_PERMISSIONS
             )
         }
+        resultPicture = binding.tvTextHasil
         imageView = binding.previewImageView
         binding.btnCameraXButton.setOnClickListener { startCameraX() }
         binding.galleryButton.setOnClickListener { startGallery() }
@@ -140,22 +143,43 @@ class PictureProcessActivity : AppCompatActivity() {
         val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 150, 150, 3), DataType.FLOAT32)
         val byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3)
         byteBuffer.order(ByteOrder.nativeOrder())
-        val newArray: Array<Int> = arrayOf(imageSize * imageSize)
-        image.getPixels(newArray.toIntArray(), 0, image.width, 0, 0, image.width, image.height)
-        val pixel = 0
-        for (i in imageSize)
+        val intValues = IntArray(imageSize * imageSize)
+        image.getPixels(intValues, 0, image.width, 0, 0, image.width, image.height)
+        var pixel = 0
+        for (i in 0 until imageSize) {
+            for (j in 0 until imageSize) {
+                val `val`: Int = intValues.get(pixel++) // RGB
+                byteBuffer.putFloat((`val` shr 16 and 0xFF) * (1f / 1))//belum di tambahkan dari model
+                byteBuffer.putFloat((`val` shr 8 and 0xFF) * (1f / 1))//belum di tambahkan dari model
+                byteBuffer.putFloat((`val` and 0xFF) * (1f / 1))//belum di tambahkan dari model
+            }
+        }
         inputFeature0.loadBuffer(byteBuffer)
 
 // Runs model inference and gets result.
         val outputs = model.process(inputFeature0)
         val outputFeature0 = outputs.outputFeature0AsTensorBuffer
 
+        val confidences = outputFeature0.floatArray
+        // find the index of the class with the biggest confidence.
+        // find the index of the class with the biggest confidence.
+        var maxPos = 0
+        var maxConfidence = 0f
+        for (i in confidences.indices) {
+            if (confidences[i] > maxConfidence) {
+                maxConfidence = confidences[i]
+                maxPos = i
+            }
+        }
+        val classes = arrayOf("jenis tanah")//belum di tambahkan dari model
+        resultPicture.setText(classes[maxPos])
 // Releases model resources if no longer used.
         model.close()
     }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1 && resultCode == RESULT_OK) {
             var image = data!!.extras!!["data"] as Bitmap?
             val dimension = Math.min(image!!.width, image.height)
@@ -164,19 +188,17 @@ class PictureProcessActivity : AppCompatActivity() {
             image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
             classifyImage(image)
         }else{
-            var uri = data?.getData()
+            val dat: Uri? = data?.getData()
             var image: Bitmap? = null
             try {
-                image = MediaStore.Images.Media.getBitmap(contentResolver, uri)
-            }catch (e: IOException){
+                image = MediaStore.Images.Media.getBitmap(this.contentResolver, dat)
+            } catch (e: IOException) {
                 e.printStackTrace()
             }
             imageView.setImageBitmap(image)
+
             image = Bitmap.createScaledBitmap(image!!, imageSize, imageSize, false)
             classifyImage(image)
         }
-
-        super.onActivityResult(requestCode, resultCode, data)
     }
-
 }
