@@ -147,7 +147,7 @@ class PictureProcessActivity : AppCompatActivity() {
                 val `val`: Int = intValues.get(pixel++) // RGB
                 byteBuffer.putFloat((`val` shr 16 and 0xFF) * (1f / 1))//belum di tambahkan dari model
                 byteBuffer.putFloat((`val` shr 8 and 0xFF) * (1f / 1))//belum di tambahkan dari model
-                byteBuffer.putFloat((`val` and 0xFF) * (1f / 1))//belum di tambahkan dari model
+                byteBuffer.putFloat((`val` and 0xFF) * (1f / 1))//belum di tambahkan dari modela
             }
         }
         inputFeature0.loadBuffer(byteBuffer)
