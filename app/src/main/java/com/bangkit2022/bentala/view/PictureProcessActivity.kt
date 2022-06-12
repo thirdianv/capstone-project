@@ -105,10 +105,6 @@ class PictureProcessActivity : AppCompatActivity() {
         launcherIntentGallery.launch(chooser)
     }
 
-    private fun startTakePhoto() {
-        Toast.makeText(this, "Fitur ini belum tersedia", Toast.LENGTH_SHORT).show()
-    }
-
 
     private val launcherIntentCameraX = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
