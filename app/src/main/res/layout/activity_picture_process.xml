@@ -70,7 +70,7 @@
         android:id="@+id/tvpredic"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/custom_shape3"
         android:text="@string/predic"
@@ -89,7 +89,7 @@
         android:text="@string/File"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.196"
         app:layout_constraintStart_toEndOf="@+id/tvpredic"
         app:layout_constraintTop_toTopOf="@+id/tvpredic" />
 
