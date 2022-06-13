@@ -56,7 +56,7 @@
         android:id="@+id/btn_cameraXButton"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/custom_shape3"
         android:drawableLeft="@drawable/ic_camera"
@@ -78,7 +78,7 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/btn_cameraXButton"
         app:layout_constraintStart_toEndOf="@+id/btn_cameraXButton"
-        app:layout_constraintTop_toTopOf="@+id/btn_cameraXButton"
+        app:layout_constraintTop_toBottomOf="@+id/result_framepicture"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
@@ -86,17 +86,15 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/custom_shape3"
         android:drawableLeft="@drawable/ic_document"
         android:text="@string/File"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/tvpredic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toEndOf="@+id/tvpredic"
-        app:layout_constraintTop_toTopOf="@+id/tvpredic"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/result_framepicture" />
 
     <RelativeLayout
         android:id="@+id/result_framepicture"
