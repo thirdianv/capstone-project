@@ -20,17 +20,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.042" />
 
+
     <TextView
         android:id="@+id/tv_cek_tanah"
         style="@style/BentalaHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:text="@string/cek_tanah"
         android:textColor="@color/green"
-        android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.053" />
@@ -40,22 +41,22 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="34dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/ic_arrow_back"
         android:contentDescription="Back Button"
         app:layout_constraintBottom_toBottomOf="@+id/tv_cek_tanah"
         app:layout_constraintEnd_toStartOf="@+id/tv_cek_tanah"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_cek_tanah"
         app:layout_constraintVertical_bias="1.0" />
-
 
     <Button
         android:id="@+id/btn_cameraXButton"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/custom_shape3"
         android:drawableLeft="@drawable/ic_camera"
@@ -71,27 +72,29 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/custom_shape3"
         android:text="@string/predic"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/btn_cameraXButton"
         app:layout_constraintStart_toEndOf="@+id/btn_cameraXButton"
-        app:layout_constraintTop_toTopOf="@+id/btn_cameraXButton"
+        app:layout_constraintTop_toBottomOf="@+id/result_framepicture"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/galleryButton"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/custom_shape3"
         android:drawableLeft="@drawable/ic_document"
         android:text="@string/File"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toEndOf="@+id/tvpredic"
-        app:layout_constraintTop_toTopOf="@+id/tvpredic" />
+        app:layout_constraintTop_toBottomOf="@+id/result_framepicture" />
 
     <RelativeLayout
         android:id="@+id/result_framepicture"
@@ -105,8 +108,8 @@
 
         <ImageView
             android:id="@+id/previewImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerInParent="true"
             tools:src="@drawable/ic_jpg" />
     </RelativeLayout>
