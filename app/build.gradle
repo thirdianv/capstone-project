@@ -35,6 +35,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    aaptOptions {
+        noCompress "tflite"  
+    }
 }
 
 dependencies {
@@ -59,4 +62,6 @@ dependencies {
     //firebase
     implementation platform('com.google.firebase:firebase-bom:30.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-ml-model-interpreter:22.0.3'
+
 }
